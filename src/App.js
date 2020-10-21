@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { finished } from "stream";
 import countries from "./countries";
 
 export default function App() {
@@ -6,6 +7,8 @@ export default function App() {
   const [sighting, setSighting] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [country, setCountry] = React.useState("");
+  const formData = new FormData();
+  const fs = require('fs');
 
   const handleSubmit = event => {
     console.log(`
@@ -14,9 +17,20 @@ export default function App() {
       Description: ${description}
       Country: ${country}
     `);
+    
+    var newSighting = JSON.stringify(Object.fromEntries(formData.entries()), null, 2);
+    console.log(newSighting);
+
+    fs.writeFile('sightings.json', newSighting, finished);
+    function finished(err){
+      console.log("all set");
+    }
+
+
 
     event.preventDefault();
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
