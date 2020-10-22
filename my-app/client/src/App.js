@@ -61,11 +61,12 @@ export default function App() {
       <label>
         Type of sighting:
         <select name="sighting" onChange={e => setSighting(e.target.value)} required>
-          <option value="select">Select an Option</option>
-          <option value="ufo">UFO</option>
-          <option value="creature">Creature</option>
-          <option value="meteor">Meteor</option>
-          <option value="flora">Flora</option>
+          <option value="UFO">UFO</option>
+          <option value="Cryptid">Cryptid</option>
+          <option value="Meteor">Meteor</option>
+          <option value="Flora">Flora</option>
+          <option value="Fauna">Fauna</option>
+          <option value="Humanoid">Humanoid</option>
         </select>
       </label>
 
