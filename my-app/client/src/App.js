@@ -4,8 +4,14 @@ import countries from "./countries";
 export default function App() {
   const [name, setName] = React.useState("");
   const [sighting, setSighting] = React.useState("");
+  const [date, setDate] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const [location, setLocation] = React.useState("");
   const [country, setCountry] = React.useState("");
+
+  const onReturnClick = () => {
+     window.location.pathname = '';
+  }
 
   const handleSubmit = event => {
 
@@ -13,20 +19,27 @@ export default function App() {
       Name: ${name}
       Sighting: ${sighting}
       Description: ${description}
+      Location: ${location}
       Country: ${country}
+      Date: ${date}
     `);
 
     fetch('/data/sighting_data', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
+
         body: JSON.stringify({
             "Name": name,
             "Sighting": sighting,
             "Description": description,
-            "Country": country
+            "Location": location,
+            "Country": country,
+            "Date": date
         }),
       });
       window.location.pathname = '';
+
+
 
       event.preventDefault();
 };
@@ -56,12 +69,28 @@ export default function App() {
       </label>
 
       <label>
+        Date:
+        <input type="date" id="Date" name="Date" value={date} onChange={e => setDate(e.target.value)} />
+      </label>
+
+      <label>
         Description:
         <input
           name="text"
           type="text"
           value={description}
           onChange={e => setDescription(e.target.value)}
+          required
+        />
+      </label>
+
+      <label>
+        Location:
+        <input
+          name="text"
+          type="text"
+          value={location}
+          onChange={e => setLocation(e.target.value)}
           required
         />
       </label>
@@ -82,6 +111,7 @@ export default function App() {
       </label>
 
       <button>Submit</button>
+      <button onClick={onReturnClick} >Return</button>
     </form>
   );
 }

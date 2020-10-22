@@ -25,7 +25,7 @@ router.post('/sighting_data', function (req, res, next) {
       let rawdata = fs.readFileSync('sightingdata.json'); //read raw file
       let parseddata = JSON.parse(rawdata); //parse into JSON
       //push new entry to the JSON "data" array
-      parseddata['data'].push({"Name": data.Name, "Sighting": data.Sighting, "Description": data.Description, "Country": data.Country})
+      parseddata['data'].push({"Name": data.Name, "Sighting": data.Sighting, "Description": data.Description, "Location": data.Location, "Country": data.Country, "Date": data.Date})
 
       let datastring = JSON.stringify(parseddata); //turn JSON into string
       fs.writeFileSync('sightingdata.json', datastring); //write updated data to file

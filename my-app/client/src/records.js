@@ -10,10 +10,10 @@ function records(props) {
     const renderData = (resp) => {
       console.log(resp);
       ReactDOM.render(
-          <table><th>Id</th><th>Submitter Name</th><th>Sighting Type</th><th>Description</th><th>Country</th>
+          <table><th>Id</th><th>Submitter Name</th><th>Sighting Type</th><th>Description</th><th>Location</th><th>Country</th><th>Date</th>
           {resp.data.map((e, i) =>{
             if (true == true){ //placeholder for searching
-              return <tr> <td>{i}</td> <td>{e.Name}</td> <td>{e.Sighting}</td> <td>{e.Description}</td>  <td>{e.Country}</td>  </tr>
+              return <tr> <td>{i}</td> <td>{e.Name}</td> <td>{e.Sighting}</td> <td>{e.Description}</td> <td>{e.Location}</td>  <td>{e.Country}</td> <td>{e.Date}</td>  </tr>
             }
           })}
         </table>, document.getElementById('recordsTable'))
