@@ -65,6 +65,7 @@ export default function App() {
           <option value="ufo">UFO</option>
           <option value="creature">Creature</option>
           <option value="meteor">Meteor</option>
+          <option value="flora">Flora</option>
         </select>
       </label>
 
