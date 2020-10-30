@@ -72,7 +72,7 @@ export default function App() {
 
       <label>
         Date:
-        <input type="date" id="Date" name="Date" value={date} onChange={e => setDate(e.target.value)} />
+        <input type="date" id="Date" name="Date" value={date} onChange={e => setDate(e.target.value)} required/>
       </label>
 
       <label>
