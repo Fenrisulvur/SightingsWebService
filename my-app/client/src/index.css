@@ -31,12 +31,43 @@ body {
     padding: 1em;
 }
 
-table,
-th,
-td {
-padding: 10px;
-border: 1px solid black;
-border-collapse: collapse;
+#dataTable {
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 40%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+#searchType, #searchInput {
+  background-position: 10px 10px;
+  width: 50%;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+
+#dataTable {
+  border-collapse: collapse;
+  background-color: white;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#dataTable th, #dataTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#dataTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#dataTable tr.header, #dataTable tr:hover {
+  background-color: #f1f1f1;
 }
 
 
